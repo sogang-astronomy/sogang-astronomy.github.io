@@ -1,4 +1,2 @@
 # sogang-astronomy.github.io
-homepage: [sogang-astronomy.github.io][hplink]
-
-[hplnk]: https://sogang-astronomy.github.io "test"
+homepage: [sogang-astronomy.github.io](https://sogang-astronomy.github.io)
