@@ -1,2 +1,2 @@
-# sogang-astronomy.github.io
-homepage: [sogang-astronomy.github.io](https://sogang-astronomy.github.io)
+# Sogang Astronomy Club Official Webpage
+---
