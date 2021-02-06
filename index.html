@@ -18,7 +18,7 @@
         background-position: center;
         background-size: cover;
         background-image: url("images/house.jpg");
-        min-height: 75%;
+        min-height: 83%;
     }
 
     .activities {
@@ -46,15 +46,15 @@
         </div>
     </div>
 
-    <!-- Header with image -->
-    <header class="bgimg w3-display-container" id="home">
+    <!-- Header -> div with image -->
+    <div class="mySlides bgimg w3-display-container" id="home">
         <div class="w3-display-middle w3-center">
             <span class="w3-text-white" style="font-size:8vw;font-family: Indie Flower;">Sogang<br>Astronomy</span>
         </div>
         <div class="w3-display-bottomright w3-center w3-padding-large">
             <span class="w3-text-white">강화도, 2020.11</span>
         </div>
-    </header>
+    </div>
 
     <!-- Add a background color and large text to the whole page -->
     <div class="w3-large">
@@ -69,25 +69,25 @@
                 </p>
                 <div class="w3-panel w3-leftbar w3-light-grey">
                     <p><span style="font-family: Gamja Flower; font-size: larger;">
-                        <i>
-                            저렇게 많은 별 중에서<br>
-                            별 하나가 나를 내려다본다<br>
-                            이렇게 많은 사람 중에서<br>
-                            그 별 하나를 쳐다본다<br>
-                            <br>
-                            밤이 깊을수록<br>
-                            별은 밝음 속에 사라지고<br>
-                            나는 어둠 속에 사라진다<br>
-                            <br>
-                            이렇게 정다운<br>
-                            너 하나 나 하나는<br>
-                            다시 만나랴<br>
-                            <br>
-                        </i>
-                    </span></p>
+                            <i>
+                                저렇게 많은 별 중에서<br>
+                                별 하나가 나를 내려다본다<br>
+                                이렇게 많은 사람 중에서<br>
+                                그 별 하나를 쳐다본다<br>
+                                <br>
+                                밤이 깊을수록<br>
+                                별은 밝음 속에 사라지고<br>
+                                나는 어둠 속에 사라진다<br>
+                                <br>
+                                이렇게 정다운<br>
+                                너 하나 나 하나는<br>
+                                다시 만나랴<br>
+                                <br>
+                            </i>
+                        </span></p>
                     <p><i>
-                        저녁 &nbsp - 김광섭 -
-                    </i></p>
+                            저녁 &nbsp - 김광섭 -
+                        </i></p>
                 </div>
             </div>
         </div>
@@ -127,7 +127,7 @@
                 </div>
 
                 <div id="Milestone" class="w3-container activities w3-padding-48 w3-card">
-                    <h5><b>03.04</b> 신규 회원 모집</h5>
+                    <h5><b>03.14</b> 신규 회원 모집</h5>
                     <p class="w3-text-grey">서강대학교 학생이라면 누구나 환영합니다!</p><br>
 
                 </div>
@@ -154,7 +154,7 @@
 
     <!-- Footer -->
     <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-        <a href="https://www.google.com"><i class="fab fa-facebook"></i></a>
+        <a href=""><i class="fab fa-facebook"></i></a>
         <p><span class="w3-text-grey"><i>Contributor:</i> pinetree2100[at]gmail.com</span></p>
         <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
                 class="w3-hover-text-green">w3.css</a></p>
@@ -176,6 +176,17 @@
             evt.currentTarget.firstElementChild.className += " w3-dark-grey";
         }
         document.getElementById("myLink").click();
+
+        var slideIndex = 0;
+        var sildeshow_image_name = ['house.jpg', 'casio.jpg'];
+
+        carousel();
+        function carousel() {
+            var x = document.getElementsByClassName("bgimg");
+            x[0].style.backgroundImage=`url(images/${sildeshow_image_name[slideIndex]})`; // specify the image path here
+            slideIndex = (slideIndex + 1) % sildeshow_image_name.length;
+            setTimeout(carousel, 8000); // Change image every 8 seconds
+        }
     </script>
 </body>
 
