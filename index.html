@@ -7,20 +7,24 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Indie+Flower|Gamja+Flower">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+
+<!-- preload images for a slideshow -->
+<link rel="preload" href="images/house.jpg" as="image">
+<link rel="preload" href="images/casio.jpg" as="image">
+<link rel="preload" href="images/deep.jpg" as="image">
+
 <style>
     body,
     html {
         height: 100%;
         font-family: "Noto Sans KR", sans-serif, "Indie-Flower", "Gamja Flower";
     }
-
     .bgimg {
         background-position: center;
         background-size: cover;
         background-image: url("images/house.jpg");
         min-height: 83%;
     }
-
     .activities {
         display: none;
     }
@@ -129,7 +133,18 @@
                 <div id="Milestone" class="w3-container activities w3-padding-48 w3-card">
                     <h5><b>03.14</b> 신규 회원 모집</h5>
                     <p class="w3-text-grey">서강대학교 학생이라면 누구나 환영합니다!</p><br>
+                </div>
+            </div>
 
+            <div class="w3-content" style="max-width:700px; margin-top:4vh">
+                <div class="w3-row w3-center w3-card w3-padding">
+                    <div class="w3-col w3-center s12">구름 예보 ☁️</div>
+                </div>
+                <div id="Windy" class="w3-container w3-padding-16 w3-card">
+                    <iframe width="100%" height="500px"
+                        src="https://embed.windy.com/embed2.html?lat=36.280&lon=127.551&detailLat=37.849&detailLon=127.551&width=650&height=450&zoom=6&level=surface&overlay=clouds&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=default&metricTemp=%C2%B0C&radarRange=-1"
+                        frameborder="0" style="border:0;">
+                    </iframe>
                 </div>
             </div>
         </div>
@@ -139,7 +154,9 @@
             <div class="w3-content" style="max-width:700px">
                 <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">Contact</span></h5>
                 <p><span class="w3-tag">동아리방</span><br> 서강대학교 엠마오관 105호</p>
-                <p><span class="w3-tag">2021년 신규 회원 모집 링크</span><br><a href="">(준비 중입니다!)</a></p>
+                <p><span class="w3-tag">문의 메일</span><br><a
+                        href="mailto:leejuwon1859@gmail.com"><i>leejuwon1859[at]gmail.com</i></a></p>
+                <p><span class="w3-tag">2021년 신규 회원 모집 링크</span><br><a>(준비 중입니다!)</a></p>
                 <div class="w3-center">
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3163.161519915174!2d126.938784915174!3d37.55125817980072!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357c99ad09252d45%3A0x97e3c5ba9df7d59a!2z7ISc6rCV64yA7ZWZ6rWQIOyXoOuniOyYpOq0gA!5e0!3m2!1sko!2skr!4v1612501873366!5m2!1sko!2skr"
@@ -147,47 +164,46 @@
                         aria-hidden="false" tabindex="0"></iframe>
                 </div>
             </div>
+
+            <!-- End page content -->
         </div>
 
-        <!-- End page content -->
-    </div>
+        <!-- Footer -->
+        <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
+            <a href=""><i class="fab fa-facebook"></i></a>
+            <p><span class="w3-text-grey"><i>Contributor:</i> pinetree2100[at]gmail.com</span></p>
+            <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
+                    class="w3-hover-text-green">w3.css</a></p>
+        </footer>
 
-    <!-- Footer -->
-    <footer class="w3-center w3-light-grey w3-padding-48 w3-large">
-        <a href=""><i class="fab fa-facebook"></i></a>
-        <p><span class="w3-text-grey"><i>Contributor:</i> pinetree2100[at]gmail.com</span></p>
-        <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
-                class="w3-hover-text-green">w3.css</a></p>
-    </footer>
-
-    <script>
-        // Tabbed Menu
-        function openMenu(evt, menuName) {
-            var i, x, tablinks;
-            x = document.getElementsByClassName("activities");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+        <script>
+            // Tabbed Menu
+            function openMenu(evt, menuName) {
+                var i, x, tablinks;
+                x = document.getElementsByClassName("activities");
+                for (i = 0; i < x.length; i++) {
+                    x[i].style.display = "none";
+                }
+                tablinks = document.getElementsByClassName("tablink");
+                for (i = 0; i < x.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+                }
+                document.getElementById(menuName).style.display = "block";
+                evt.currentTarget.firstElementChild.className += " w3-dark-grey";
             }
-            tablinks = document.getElementsByClassName("tablink");
-            for (i = 0; i < x.length; i++) {
-                tablinks[i].className = tablinks[i].className.replace(" w3-dark-grey", "");
+            document.getElementById("myLink").click();
+
+            var slideIndex = 0;
+            var sildeshow_image_name = ['house.jpg', 'casio.jpg', 'deep.jpg'];
+
+            carousel();
+            function carousel() {
+                var x = document.getElementsByClassName("bgimg");
+                x[0].style.backgroundImage = `url(images/${sildeshow_image_name[slideIndex]})`; // specify the image path here
+                slideIndex = (slideIndex + 1) % sildeshow_image_name.length;
+                setTimeout(carousel, 7000); // Change image every 8 seconds
             }
-            document.getElementById(menuName).style.display = "block";
-            evt.currentTarget.firstElementChild.className += " w3-dark-grey";
-        }
-        document.getElementById("myLink").click();
-
-        var slideIndex = 0;
-        var sildeshow_image_name = ['house.jpg', 'casio.jpg'];
-
-        carousel();
-        function carousel() {
-            var x = document.getElementsByClassName("bgimg");
-            x[0].style.backgroundImage=`url(images/${sildeshow_image_name[slideIndex]})`; // specify the image path here
-            slideIndex = (slideIndex + 1) % sildeshow_image_name.length;
-            setTimeout(carousel, 8000); // Change image every 8 seconds
-        }
-    </script>
+        </script>
 </body>
 
 </html>
