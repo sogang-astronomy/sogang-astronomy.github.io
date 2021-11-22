@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+KR|Indie+Flower|Gamja+Flower">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
 
-<!-- preload images for a slideshow -->
-<link rel="preload" href="images/house.jpg" as="image">
-<link rel="preload" href="images/casio.jpg" as="image">
-<link rel="preload" href="images/deep.jpg" as="image">
-
 <style>
     body,
     html {
@@ -22,7 +17,7 @@
     .bgimg {
         background-position: center;
         background-size: cover;
-        background-image: url("images/house.jpg");
+        background-image: url("");
         min-height: 83%;
     }
     .activities {
@@ -214,14 +209,24 @@
 
             var slideIndex = 0;
             var sildeshow_image_name = ['house.jpg', 'casio.jpg', 'deep.jpg'];
+            preloading(sildeshow_image_name);
 
             carousel();
             function carousel() {
                 var x = document.getElementsByClassName("bgimg");
                 x[0].style.backgroundImage = `url(images/${sildeshow_image_name[slideIndex]})`; // specify the image path here
                 slideIndex = (slideIndex + 1) % sildeshow_image_name.length;
-                setTimeout(carousel, 7000); // Change image every 8 seconds
+                setTimeout(carousel, 7000);  // Change image every 7 seconds
             }
+
+            function preloading (ImageList) {
+                for(var ImgSrc of ImageList){
+                    let img = new Image();
+                    img.src = "images/" + ImgSrc;
+                }
+            }
+
+
         </script>
 </body>
 
